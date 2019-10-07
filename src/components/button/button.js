@@ -9,11 +9,16 @@ let random = Math.floor(Math.random() * 3421) + 1;
 let random1 = Math.floor(Math.random() * 3421) + 1;
 let random2 = Math.floor(Math.random() * 3421) + 1;
 let random3 = Math.floor(Math.random() * 3421) + 1;
-let superRandom = Math.floor(Math.random() * 3) + 1;
+let random4 = Math.floor(Math.random() * 3) + 1;
 
+var one = 1;
+var two = 2;
+var three = 3;
+var four = 4;
 let symbol = PostData.filter(function (name) {
   return name.ID === random;
 });
+
 
 let symbol2 = PostData.filter(function (name) {
   return name.ID === random1;
@@ -51,18 +56,104 @@ const divStyle = {
 
 export default function ContainedButtons() {
   const [color, setColor] = useState(0);
+  const [color2, setColor2] = useState(0);
+  const [color3, setColor3] = useState(0);
+  const [color4, setColor4] = useState(0);
 
 
-  console.log(color)
-  function handleChange(sym) {
-    if (array[superRandom] === sym) {
-      alert("Correct, you guessed " + sym[0].Name);
-      setColor("green");
+
+  // const id = target.id;
+  console.log(color);
+
+  // function handleId (e) {
+  //   console.log(e)
+
+  //   console.log(e.target.value);
+  //   console.log(e.currentTarget.value);
+  //   if(e.currentTarget.value === "1")
+  //   {
+  //     setColor("green");
+
+  //   }
+  //   if(e.currentTarget.value === "2")
+  //   {
+  //     setColor("red");
+
+  //   }
+  // }
+  function handleChange(e, i) {
+
+    // console.log(e.target.value);
+    // console.log(e.currentTarget.value);
+    console.log(e)
+    console.log(i)
+
+    
+    // const id = symbol.target.id;
+    // console.log("hello");
+    if (array[random4] === e) {
+        // alert("Correct, you guessed " + e[0].Name);
+
+      if(i === one)
+      {
+        setColor("green");
+        // setColor2("red");
+        // setColor3("red");
+        // setColor4("red");
+
+
+  
+      }
+      else if(i === two)
+      {
+        setColor2("green");
+        // setColor("red");
+        // setColor3("red");
+        // setColor4("red");
+  
+      }
+      else if(i === three)
+      {
+        setColor3("green");
+        // setColor("red");
+        // setColor2("red");
+        // setColor4("red");
+  
+      }
+      else if (i === four)
+      {
+        setColor4("green");
+        // setColor("red");
+        // setColor2("red");
+        // setColor3("red");
+  
+      }
       // window.location.reload();
       
+      
     } else {
-      alert("Incorrect, " + sym[0].Name + " is not the right answer. Try again.");
-      setColor("red");
+      // alert("Incorrect, " + e[0].Name + " is not the right answer. Try again.");
+      if(i === one)
+      {
+        setColor("red");
+
+  
+      }
+      else if(i === two)
+      {
+        setColor2("red");
+  
+      }
+      else if(i === three)
+      {
+        setColor3("red");
+  
+      }
+      else if (i === four)
+      {
+        setColor4("red");
+  
+      }
 
     }
   }
@@ -76,7 +167,7 @@ export default function ContainedButtons() {
       <div>
         <Paper className={classes.root}>
           <Typography style={divStyle} variant="h5" component="h3">
-            {array[superRandom].map((postDetail, index) => {
+            {array[random4].map((postDetail, index) => {
               return (
                 <div>
                   <h1>Which stock is represented by {postDetail.Symbol}?</h1>
@@ -88,15 +179,19 @@ export default function ContainedButtons() {
       </div>
 
       <div style={divStyle}>
+      {/* <button value="1" onClick={handleId}>Button</button> */}
+
         <Button
-          // value={symbol}
-          onClick={() => handleChange(symbol)}
+          value="1"
+          onClick={() => handleChange(symbol, one)}
+          // onClick={handleId}
           variant="contained"
           color="primary"
           className={classes.button}
           key={PostData.id}
-          id={PostData.id}
-          value={"red"}
+          id="1"
+          // value={"red"}
+          // onClick={() => { handleChange(symbol); handleId()}}
           // onClick={() => setColor("red")}
           style={{backgroundColor:color}}          
           >
@@ -111,12 +206,16 @@ export default function ContainedButtons() {
         </Button>
 
         <Button
-          value={symbol2}
-          onClick={() => handleChange(symbol2)}
+          value="2"
+          onClick={() => handleChange(symbol2, two)}
           variant="contained"
           color="primary"
           className={classes.button}
           id="unique-id"
+          // onClick={handleId}
+          style={{backgroundColor:color2}}          
+
+
         // onClick={showAlert}
         >
           {symbol2.map((postDetail, index) => {
@@ -129,13 +228,15 @@ export default function ContainedButtons() {
         </Button>
 
         <Button
-          value={symbol3}
-          onClick={() => handleChange(symbol3)}
+          value="3"
+          onClick={() => handleChange(symbol3, three)}
           variant="contained"
           color="primary"
           className={classes.button}
         // onClick={e => handleChange(e.target.value)}
         // value={"hello"}
+        style={{backgroundColor:color3}}          
+
         >
           {symbol3.map((postDetail, index) => {
             return (
@@ -147,11 +248,14 @@ export default function ContainedButtons() {
         </Button>
 
         <Button
-          value={symbol4}
-          onClick={() => handleChange(symbol4)}
+          value="4"
+          onClick={() => handleChange(symbol4, four)}
           variant="contained"
           color="primary"
-          className={classes.button}>
+          className={classes.button}
+          style={{backgroundColor:color4}}          
+
+          >
           {symbol4.map((postDetail, index) => {
             return (
               <div>
