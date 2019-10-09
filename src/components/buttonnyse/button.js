@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import PostData from "../../data/post.json";
+import PostData from "../../data/nyse.json";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
-let random = Math.floor(Math.random() * 3446) + 1;
-let random1 = Math.floor(Math.random() * 3446) + 1;
-let random2 = Math.floor(Math.random() * 3446) + 1;
-let random3 = Math.floor(Math.random() * 3446) + 1;
+let random = Math.floor(Math.random() * 3125) + 1;
+let random1 = Math.floor(Math.random() * 3125) + 1;
+let random2 = Math.floor(Math.random() * 3125) + 1;
+let random3 = Math.floor(Math.random() * 3125) + 1;
 let random4 = Math.floor(Math.random() * 3) + 1;
 
 var one = 1;
@@ -106,7 +106,7 @@ export default function ContainedButtons() {
 
     // const id = symbol.target.id;
     // console.log("hello");
-    if (symbolState === e) {
+    if (array[random4] === e) {
       // alert("Correct, you guessed " + e[0].Name);
       setCount(count + 1);
       console.log(count);
@@ -160,7 +160,7 @@ export default function ContainedButtons() {
             {array[random4].map((postDetail, index) => {
               return (
                 <div>
-                  <h1>Which stock in the NASDAQ is represented by {postDetail.Symbol}?</h1>
+                  <h1>Which stock in the NYSE is represented by {postDetail.Symbol}?</h1>
                 </div>
               );
             })}
